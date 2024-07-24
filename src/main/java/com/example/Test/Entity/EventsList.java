@@ -6,19 +6,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Table(name = "event_details")
+@Table(name = "event_details1")
 @Entity
 
 public class EventsList {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	private int id;
 	private String username;
 	private String eventname;
-	private String desc;
-	private String date;
+	private String message;
+	private String createAt;
 
 	public int getId() {
 		return id;
@@ -32,12 +32,12 @@ public class EventsList {
 		return eventname;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getMessage() {
+		return message;
 	}
 
-	public String getDate() {
-		return date;
+	public String getCreateAt() {
+		return createAt;
 	}
 
 	public void setId(int id) {
@@ -52,12 +52,12 @@ public class EventsList {
 		this.eventname = eventname;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setCreateAt(String createAt) {
+		this.createAt = createAt;
 	}
 
 }

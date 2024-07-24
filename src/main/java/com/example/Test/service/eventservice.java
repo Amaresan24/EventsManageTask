@@ -37,13 +37,13 @@ public class eventservice {
 
 	public String updateEvents(EventsList e, int a) {
 		// TODO Auto-generated method stub
-		
+
 		EventsList val = ed.getEvent_id(a);
 
 		val.setEventname(e.getEventname());
 		val.setUsername(e.getUsername());
-		val.setDesc(e.getDesc());
-		val.setDate(e.getDate());
+		val.setMessage(e.getMessage());
+		val.setCreateAt(e.getCreateAt());
 
 		ed.updateEvents(val);
 
@@ -60,22 +60,19 @@ public class eventservice {
 		// TODO Auto-generated method stub
 		List<EventsList> li = ed.gettotal_event();
 
-		List<EventsList> events = li.stream().filter(X -> X.getDate().equals(a)).collect(Collectors.toList());
+		List<EventsList> events = li.stream().filter(X -> X.getCreateAt().equals(a)).collect(Collectors.toList());
 
 		return events;
 	}
 
 	public List<EventsList> create_Event(String a) {
 		// TODO Auto-generated method stub
-		
-		
+
 		List<EventsList> cr = ed.gettotal_event();
 
 		List<EventsList> userDetails = cr.stream().filter(X -> X.getEventname().equals(a)).collect(Collectors.toList());
 		return userDetails;
-		
-		
-		
+
 	}
 
 }
